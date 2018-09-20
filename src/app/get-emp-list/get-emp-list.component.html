@@ -1,0 +1,48 @@
+<app-header></app-header>
+
+<mat-toolbar>
+    <div class="header_searchbar">
+      <div class="search_container">
+        <form>
+          <input type="text" (blur)=validate() (input)="eventHandler($event)" id="search_bar" autocomplete="off" placeholder="Search">
+          <span class="search_bar_icon">
+            <i class="material-icons">search </i>
+          </span>
+        </form>
+      </div>
+      </div>
+  </mat-toolbar>
+  
+<div class="container-fuild task_tabel_wrapper" >
+  <table class="table table-dark table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th> Name</th>
+        <th> Email</th>
+        <th> Phone</th>
+        <th>Designation</th>
+        <th> Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="tr_table" *ngFor="let empData of emplist" >
+        <td>{{empData.emp_name |titlecase}}</td>
+        <td>{{empData.emp_email}}</td>
+        <td>{{empData.emp_phone}}</td>
+        <td>{{empData.emp_position}}</td>
+
+        <td> <section class="example-section">
+          <mat-slide-toggle
+              class="example-margin"
+              [color]="color"
+              [(ngModel)]=empData.emp_status 
+              [checked]="checked"
+              [disabled]="disabled"
+               (change)="ChangeStatus($event,empData.emp_id)">
+          </mat-slide-toggle>
+        </section>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

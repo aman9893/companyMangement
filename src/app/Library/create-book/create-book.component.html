@@ -1,0 +1,21 @@
+<h1 mat-dialog-title>
+    Add New Book </h1>
+    <form [formGroup]="contactForm" novalidate>
+        <mat-dialog-content>
+    <mat-form-field class="width_100">
+    <input matInput placeholder=" Enter Book Name"  formControlName="book_name"  required>
+    <mat-error *ngIf="contactForm['controls'].book_name.invalid">{{getError()}}</mat-error>
+    </mat-form-field>
+     <mat-form-field class="width_100">
+      <input matInput placeholder=" Enter book Number"  formControlName="book_number"  >
+     </mat-form-field>
+     <mat-form-field class="width_100">
+      <input matInput placeholder=" Enter Auther Name"  formControlName="auther"  >
+     </mat-form-field>
+
+  </mat-dialog-content>
+    <mat-dialog-actions class="float_rightbtn form_buttons">
+    <button mat-raised-button (click)="closeDialog('cancel')" class="uppercase_button cancel_btn">Cancel</button>
+    <button mat-raised-button  type="submit"  [disabled]="!contactForm.valid"  (click)="onSubmit()"  class="uppercase_button save_btn">Save</button>
+    </mat-dialog-actions>
+    </form>

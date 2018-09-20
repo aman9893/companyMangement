@@ -1,0 +1,80 @@
+<div *ngIf="Updatedata.book_status ===1"  class="emp_wrapper">
+  <div class="emp_details_header_wrapper">
+    <div class="emp_details_header_leftside">
+      {{Updatedata.book_name}}
+    </div>
+    <div class="person_data_right1" *ngIf="Updatedata.book_status === 1">
+      <button class="true_status" mat-mini-fab color="primary"></button>
+    </div>
+
+    <div class="person_data_right2" *ngIf="Updatedata.book_status === 0">
+      <button class="false_status_btn" mat-mini-fab></button>
+    </div>
+
+    <div class="emp_details_header_rightside">
+      <button mat-icon-button matTooltip="Close">
+        <mat-icon class="contact_header_right_calender_icon" (click)="CloseUpdateDialog()">close</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <div class="emp_details_header_cantainer">
+    <!--add person info-->
+
+    <div class="person_data_wrapper">
+      <div class="person_data_left">
+        <i class="material-icons">alarm</i>
+      </div>
+      <div class="person_data_right intime">
+        {{Updatedata.book_name}}
+      </div>
+    </div>
+
+    <div class="person_data_wrapper">
+      <div class="person_data_left">
+        <i class="material-icons">book</i>
+      </div>
+      <div class="person_data_right">
+        {{Updatedata.book_number}} Book Number
+      </div>
+    </div>
+    <div class="dropdown_emp">
+      <mat-form-field class="width_100">
+        <mat-select (selectionChange)="empChangeData($event,Updatedata.book_id)"   placeholder="Empolyee Name">
+          <mat-option  *ngFor="let emp of empListdata" [value]="emp.emp_name">
+            {{emp.emp_name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <button mat-raised-button type="submit"  (click)="onSubmit()" class="update_book_btn">Submit</button>
+  </div>
+</div>
+
+<div *ngIf="Updatedata.book_status === 0"  class="emp_wrapper">
+
+    <div class="emp_details_header_wrapper">
+      <div class="emp_details_header_leftside">
+        {{Updatedata.book_name}}
+      </div>
+      <div class="person_data_right1" *ngIf="Updatedata.book_status === 1">
+        <button class="true_status" mat-mini-fab color="primary"></button>
+      </div>
+  
+      <div class="person_data_right2" *ngIf="Updatedata.book_status === 0">
+        <button class="false_status_btn" mat-mini-fab></button>
+      </div>
+  
+      <div class="emp_details_header_rightside">
+        <button mat-icon-button matTooltip="Close">
+          <mat-icon class="contact_header_right_calender_icon" (click)="CloseUpdateDialog()">close</mat-icon>
+        </button>
+      </div>
+    </div>
+  
+    <div class="emp_details_book_submit">
+        <span><mat-checkbox (change)="updateStatus($event)">   Are You Sure Submit this Book ?</mat-checkbox></span>       
+      <button mat-raised-button type="submit"  (click)="onupdate()" class="update_book_btn">Submit</button>
+    </div>
+  </div>
+  

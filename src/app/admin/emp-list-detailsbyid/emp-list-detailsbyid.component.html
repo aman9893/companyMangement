@@ -1,0 +1,93 @@
+<div class="emp_wrapper">
+  <div class="emp_details_header_wrapper">
+    <div class="emp_details_header_leftside">
+      {{Updatedata.emp_name}}
+    </div>
+    <div class="emp_details_header_rightside">
+      <button mat-icon-button matTooltip="Edit Calendar" (click)="editEmpoyee(Updatedata)">
+        <mat-icon class="contact_header_right_calender_icon">edit</mat-icon>
+      </button>
+
+      <button mat-icon-button matTooltip="Mail" (click)="sendEmail(Updatedata.emp_email)">
+        <mat-icon class="contact_header_right_calender_icon">mail</mat-icon>
+      </button>
+
+      <button mat-icon-button matTooltip="Delete calendar">
+        <mat-icon class="contact_header_right_calender_icon" (click)="deleteEmpoyee(Updatedata.emp_id)">delete</mat-icon>
+      </button>
+
+      <button mat-icon-button matTooltip="Close">
+        <mat-icon class="contact_header_right_calender_icon" (click)="CloseUpdateDialog()">close</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <div class="emp_details_header_cantainer">
+    <!--add person info-->
+    <div class="person_data_wrapper">
+      <div class="person_data_left">
+        <i class="material-icons">mood</i>
+      </div>
+      <div class="person_data_right">
+        {{Updatedata.emp_name |titlecase}}
+      </div>
+    </div>
+
+    <div class="person_data_wrapper">
+      <div class="person_data_left">
+        <i class="material-icons">alarm</i>
+      </div>
+      <div class="person_data_right intime" >
+        {{Updatedata.start_at |  date:'shortTime'}} In time
+      </div>
+    </div>
+
+    <div class="person_data_wrapper">
+      <div class="person_data_left">
+        <i class="material-icons">alarm</i>
+      </div>
+      <div class="person_data_right outtime">
+        {{Updatedata.out_time |  date:'shortTime'}} out time
+      </div>
+    </div>
+
+    <div class="person_data_wrapper">
+      <div class="person_data_left">
+        <i class="material-icons">mail</i>
+      </div>
+      <div class="person_data_right">
+        {{Updatedata.emp_email}}
+      </div>
+    </div>
+    <div class="person_data_wrapper">
+      <div class="person_data_left">
+        <i class="material-icons">call</i>
+      </div>
+      <div class="person_data_right">
+        {{Updatedata.emp_phone}}
+      </div>
+    </div>
+    <div class="person_data_wrapper">
+      <div class="person_data_left">
+        <i class="material-icons">work_outline</i>
+      </div>
+      <div class="person_data_right">
+        {{Updatedata.emp_position}}
+      </div>
+    </div>
+    <div class="person_data_wrapper">
+      <div class="person_data_left">
+        <i class="material-icons">dns</i>
+      </div>
+      <div class="person_data_right" *ngIf="Updatedata.emp_status === 1">
+        <button class="true_status" mat-mini-fab color="primary"></button>
+        <p class="office_text_staus"> He Is in Office</p>
+      </div>
+
+      <div class="person_data_right" *ngIf="Updatedata.emp_status === 0">
+        <button class="false_status_btn" mat-mini-fab></button>
+        <p class="office_text_staus"> He Is not in Office</p>
+      </div>
+    </div>
+  </div>
+</div>

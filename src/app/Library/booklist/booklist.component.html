@@ -1,0 +1,64 @@
+<div class="container=fuild">
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <span class="main_header_title"> Library System </span>
+      <div class="search_librarycontainer">
+        <form>
+          <input type="text" (input)="eventHandler($event)" id="search_bar" autocomplete="off" placeholder="Search">
+          <span class="search_library_bar_icon">
+            <i class="material-icons">search </i>
+          </span>
+        </form>
+      </div>
+      <span class="example-spacer"></span>
+      <mat-icon class="icon_value">laptop</mat-icon>
+      <span routerLinkActive="active" routerLink="/admin" class="icon_text"> Admin DashBoard </span>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <mat-toolbar>
+    <div class="header_searchbar">
+    </div>
+    <div class="subheader_right">
+      <button (click)="createEmpDialog()" mat-stroked-button color="primary">ADD NEW BOOK</button>
+    </div>
+  </mat-toolbar>
+  <div class="container-fuild task_tabel_wrapper">
+    <table class="table table-hover">
+      <thead class="thead-responsive">
+        <tr>
+          <th>Book Status</th>
+          <th>Book Name</th>
+          <th>Book Number</th>
+          <th>Auther</th>
+          <th>Empolyee Name </th>
+          <th> Edit </th>
+          <th> Delete </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="emplist_tr" *ngFor="let book of bookslist let myindex = index;"  (click)="updateBookDialog(book)">
+
+          <td *ngIf="book.book_status === 1">
+            <i class="material-icons truebook_status">
+                library_books
+            </i>
+          </td>
+          <td *ngIf="book.book_status === 0">
+            <i class="material-icons flasebook_status">
+              library_books
+            </i>
+          </td>
+          <td>{{book.book_name}}</td>
+          <td>{{book.book_number}}</td>
+          <td>{{book.book_auther}}</td>
+          <td>{{book.empolyee_name}}</td>
+          <td>
+            <mat-icon    (click)="stopPropagation($event)" class="emplist_edit_icon">edit</mat-icon>
+          </td>
+          <td>
+            <mat-icon class="delete_mat_icon"    (click)="stopPropagation($event)" (click)="deleteEmpDialog(book.book_id)">delete</mat-icon>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

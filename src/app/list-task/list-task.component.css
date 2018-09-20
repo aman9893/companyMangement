@@ -1,0 +1,9 @@
+.add_btn{
+    font-size: 14px;
+    font-weight: bold;
+}
+.task_tabel_wrapper{
+    float: left;
+    padding-left: 4px;
+    width: 100%;
+}

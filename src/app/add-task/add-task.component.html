@@ -1,0 +1,22 @@
+<h1 mat-dialog-title>
+  ADD NEW TASK </h1>
+<form [formGroup]="taskForm" novalidate>
+ <mat-form-field class="width_100">
+   <input matInput placeholder=" Enter Task Name" formControlName="task_name" required>
+   <!-- <mat-error *ngIf="taskForm['controls'].task_name.invalid">{{getError()}}</mat-error> -->
+ </mat-form-field>
+ <mat-form-field class="width_100">
+   <input matInput placeholder=" Enter Task Description" formControlName="task_details" required>
+ </mat-form-field>
+ <mat-form-field class="width_100">
+   <input matInput placeholder="Task Time" formControlName="task_time" required>
+ </mat-form-field>
+ <mat-form-field class="width_100">
+   <input matInput placeholder=" Task status" formControlName="status" required>
+ </mat-form-field>
+
+ <mat-dialog-actions class="float_right form_buttons">
+   <button mat-raised-button (click)="cancel()" class="uppercase_button cancel_btn">Cancel</button>
+   <button mat-raised-button type="submit" [disabled]="!taskForm.valid"  (click)="onSubmit()" class="uppercase_button save_btn">Save</button>
+ </mat-dialog-actions>
+</form>

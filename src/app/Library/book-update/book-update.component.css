@@ -1,0 +1,24 @@
+.person_data_right1{
+    float: left;
+    padding-top: 13px;
+}
+.person_data_right2{
+    float: left;
+    padding-top: 13px;  
+}
+.update_book_btn{
+    float: right;
+    margin: 10px;
+}
+.dropdown_emp{
+    float: left;
+    width: 100%;
+    font-size: 14px;
+    padding-left: 27px;
+    padding-right: 14px;
+}
+.emp_details_book_submit{
+    float: left;
+    width: 100%;
+    padding: 41px;
+}

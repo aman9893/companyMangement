@@ -1,0 +1,39 @@
+<div class="add_empolyee_form_wrapper">
+  <div class="form_header">
+         Add Empolyee
+  </div>
+  <div [formGroup]="empAddForm" novalidate>
+    <mat-form-field  class="form_container">
+      <input matInput formControlName="emp_name"  placeholder="Empolyee Name">
+      <mat-error *ngIf="empAddForm['controls'].emp_name.invalid">{{empNameValid()}}</mat-error>
+    </mat-form-field>
+  
+    <mat-form-field  class="form_container">
+      <input matInput formControlName="emp_email" placeholder="Email">
+      <mat-error *ngIf="empAddForm['controls'].emp_email.invalid">{{empEmailValid()}}</mat-error>
+    </mat-form-field>
+    <mat-form-field  class="form_container">
+      <input type="number" matInput  formControlName="emp_phone"  placeholder="Phone">
+      <mat-error *ngIf="empAddForm['controls'].emp_phone.invalid">{{empPhoneValid()}}</mat-error>
+    </mat-form-field>
+    <mat-form-field  class="form_container">
+      <input matInput formControlName="emp_position"  placeholder="Designation">
+      <mat-error *ngIf="empAddForm['controls'].emp_position.invalid">{{empDesignationValid()}}</mat-error>
+    </mat-form-field>
+    <!-- <mat-checkbox  formControlName="emp_status"  class="form_container">Status</mat-checkbox> -->
+
+  </div>
+  <div  *ngIf="saveFlag" class="btn_empolyee">
+    
+      <button mat-raised-button (click)='cancel()' class="cancel_btn">Cancel</button>
+      <button mat-raised-button type="submit"  [disabled]="!empAddForm.valid"  (click)="onSubmit()"
+       class="save_btn">Save</button>
+  </div>
+
+  <div *ngIf="updateFlag"  class="btn_empolyee">
+    
+    <button mat-raised-button (click)='cancel()' class="cancel_btn">Cancel</button>
+    <button mat-raised-button type="submit"  [disabled]="!empAddForm.valid"  (click)="onUpdate()"
+     class="save_btn">Update</button>
+</div>
+</div>

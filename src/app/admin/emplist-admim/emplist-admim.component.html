@@ -1,0 +1,55 @@
+
+<mat-toolbar>
+  <div class="header_searchbar">
+    <div class="search_container">
+      <form>
+        <input type="text" (blur)=validate() (input)="eventHandler($event)" id="search_bar" autocomplete="off" placeholder="Search">
+        <span class="search_bar_icon">
+          <i class="material-icons">search </i>
+        </span>
+      </form>
+    </div>
+    </div>
+    <div class="subheader_right">
+      <button (click)="createEmpolyee()" mat-stroked-button color="primary">ADD NEW EMPOLYEE</button>
+    </div>
+</mat-toolbar>
+
+<div class="container-fuild task_tabel_wrapper" >
+  <table class="table table-hover">
+    <thead class="thead-responsive">
+      <tr>
+        <th> No</th>
+        <th> Name</th>
+        <th> Email</th>
+        <th> Phone</th>
+        <th>Designation</th>
+        <th> In/out Status</th>
+        <th> In Time</th>
+        <th>Add Task</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="emplist_tr" *ngFor="let empData of emplist  let myIndex = index;" (click)="detailsEmpolyee(empData)" >
+        <td>{{myIndex}}</td>
+        <td>{{empData.emp_name }}</td>
+        <td>{{empData.emp_email}}</td>
+        <td>{{empData.emp_phone}}</td>
+        <td>{{empData.emp_position}}</td>
+        
+        <td *ngIf="empData.emp_status === 1"  >
+          <button class="true_status" mat-mini-fab color="primary"></button>
+        </td>
+      
+        <td *ngIf="empData.emp_status === 0"  >
+          <button class="false_status_btn" mat-mini-fab ></button>
+        </td>
+
+        <td>{{empData.start_at |  date:'shortTime'}}</td>
+        <td><button   (click)="stopPropagation($event)" (click)="createTask(empData.emp_id)" class="add_task_btn" mat-mini-fab  color="primary">
+            <i class="material-icons">  add </i>
+        </button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

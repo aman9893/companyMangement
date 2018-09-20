@@ -1,0 +1,48 @@
+.search_librarycontainer #search_bar{
+    min-width: 520px;
+    min-height: 35px;
+    padding: 3px 20px;
+    background: #2e39775e;
+    border: none;
+    cursor: text;
+    color: #e9ecef;
+    outline: none;
+    font-family: Poplight2;
+    font-size: 16px;
+    border-radius: 1px 3px 3px 2px;
+    /* margin-bottom: 8px; */
+    margin-left: 56px;
+    cursor: pointer;
+}
+.search_librarycontainer #search_bar:hover{
+
+    background: #ffffff;
+    color: #000000;
+}
+
+
+.search_library_bar_icon{
+    position: absolute;
+    /* right: 15px; */
+    margin: -32px;
+    padding-top: 39px;
+    cursor: pointer;
+}.emplist_tr {
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.81);
+    font-family: Poplight2;
+}
+.emplist_edit_icon{
+    color: #343a40a1;
+}
+.delete_mat_icon{
+    color: #343a40a1;
+}
+.flasebook_status{
+    color: red;
+    margin-left: 25px;
+}
+.truebook_status{
+    color: green;
+    margin-left: 25px;
+}
