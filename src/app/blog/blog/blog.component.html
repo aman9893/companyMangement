@@ -1,0 +1,26 @@
+<div class="add_empolyee_form_wrapper">
+  <div class="form_header">
+         Add Blog
+  </div>
+  <div [formGroup]="blogAddForm" novalidate>
+    <mat-form-field  class="form_container">
+      <input matInput formControlName="blog_name"  placeholder="Blog Name">
+      <mat-error *ngIf="blogAddForm['controls'].blog_name.invalid">{{empNameValid()}}</mat-error>
+    </mat-form-field>
+    <mat-form-field  class="form_container">
+    <textarea matInput rows="5" cols="40" formControlName="blog_details"  placeholder="text"></textarea>
+  </mat-form-field>
+
+  <input 
+  style="display: none" 
+  type="file" (change)="onFileChanged($event)" 
+  #fileInput>
+<button (click)="fileInput.click()">Select File</button>
+  </div>
+  <div  *ngIf="saveFlag" class="btn_empolyee">
+    
+      <button mat-raised-button (click)='cancel()' class="cancel_btn">Cancel</button>
+      <button mat-raised-button type="submit"  [disabled]="!blogAddForm.valid"  (click)="onSubmit()"
+       class="save_btn">Save</button>
+  </div>
+</div>

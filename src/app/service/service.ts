@@ -13,6 +13,15 @@ export class DataService {
   //  getList() {
   //     return this.http.get(ApiConfig.apiUrl + '' + ApiConfig.apiPath + '' + SettingConfig.setting_get_pipeline_url);
   // }
+  getblogdata(){
+    return this.http.get('http://localhost:8000/api/blogs');
+  }
+
+
+  postblogData(message) {
+    return this.http.post('http://localhost:8000/api/addblogs', message);
+  }
+  
   registerData(message) {
     return this.http.post('http://localhost:8000/api/register', message);
   }

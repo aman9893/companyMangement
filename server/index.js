@@ -20,7 +20,7 @@ app.use(function (req, res, next) {
 
 
 var list = require('./controllers/empList');
-// var updateEmp=require('./controllers/empList');
+var blog=require('./controllers/blog');
 var booklist = require('./controllers/library');
 var Emplist = require('./controllers/get_empolyee');
 var Tasklist = require('./controllers/task_list');
@@ -47,5 +47,9 @@ app.get('/api/book_list', booklist.LibraryData);
 app.post('/api/add_book', booklist.addBook);
 app.delete('/api/delete_book/:book_id', booklist.deleteBook);
 app.put('/api/update_booklist', booklist.updateBook);
+////
+
+app.get('/api/blogs', blog.blogData);
+app.post('/api/addblogs', blog.addBlog);
 
 app.listen(8000);

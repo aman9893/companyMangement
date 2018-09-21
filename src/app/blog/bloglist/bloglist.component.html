@@ -1,0 +1,37 @@
+
+<mat-toolbar>
+  <div class="header_searchbar">
+    <div class="search_container">
+    </div>
+    </div>
+    <div class="subheader_right">
+      <button (click)="createBlog()" mat-stroked-button color="primary">ADD NEW BLOG</button>
+    </div>
+</mat-toolbar>
+<div  class="box_blog" *ngFor="let blog of bloglist" >
+
+<mat-card class="example-card" >
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{blog.blog_name}}</mat-card-title>
+    </mat-card-header>
+    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+    <mat-card-content>
+      <p>
+          {{blog.blog_details}}
+      </p>
+      <p>
+          {{blog.blog_date  |date:'fullDate'}}
+      </p>
+    </mat-card-content>
+
+        <input   placeholder="add comment">
+
+    <mat-card-actions>
+      <button mat-button>LIKE</button>
+      <button mat-button>SHARE</button>
+    </mat-card-actions>
+
+
+  </mat-card>
+  </div>
